@@ -11,6 +11,7 @@ import PythonKit
 
 
 autoreleasepool {
+
     NEProvider.startSystemExtensionMode()
     IPCConnection.shared.startListener()
 }

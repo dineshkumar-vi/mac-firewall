@@ -3,6 +3,7 @@ import NetworkExtension
 import SystemExtensions
 import os.log
 
+
 import PythonKit
 
 /**
@@ -28,6 +29,8 @@ class ViewController: NSViewController {
     @IBOutlet var stopButton: NSButton!
     @IBOutlet var logTextView: NSTextView!
 
+    private let fileManager = FileManager.default
+    
     var observer: Any?
 
     lazy var dateFormatter: DateFormatter = {
@@ -137,7 +140,7 @@ class ViewController: NSViewController {
             status = .stopped
         }
     }
-
+    
     func logFlow(_ flowInfo: [String: String], at date: Date, userAllowed: Bool) {
 
         guard let localPort = flowInfo[FlowInfoKey.localPort.rawValue],
@@ -157,45 +160,6 @@ class ViewController: NSViewController {
     }
     
     // MARK: UI Event Handlers
-    
-    func convertIntoJSONString(arrayObject: Any) -> String? {
-
-            do {
-                let checker = JSONSerialization.isValidJSONObject(arrayObject)
-                print(checker)
-
-                let jsonData: Data = try JSONSerialization.data(withJSONObject: arrayObject, options: [])
-                if  let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) {
-                    return jsonString as String
-                }
-                
-            } catch let error as NSError {
-                print("Array convertIntoJSON - \(error.description)")
-            }
-            return nil
-        }
-    
-    func matches(for regex: String, in text: String) -> [String] {
-
-        do {
-            let regex = try NSRegularExpression(pattern: regex)
-            let nsString = text as NSString
-            let results = regex.matches(in: text, range: NSRange(location: 0, length: nsString.length))
-            return results.map { nsString.substring(with: $0.range)}
-        } catch let error {
-            print("invalid regex: \(error.localizedDescription)")
-            return []
-        }
-    }
-    
-    
-    func generic<T>(parameter: AnyObject, type: T.Type) -> Bool {
-        if parameter is T {
-            return true
-        } else {
-            return false
-        }
-    }
     
     @IBAction func startFilter(_ sender: Any) {
         

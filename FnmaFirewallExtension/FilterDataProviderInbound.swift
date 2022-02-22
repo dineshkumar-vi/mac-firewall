@@ -1,22 +1,20 @@
-/*
-See LICENSE folder for this sample’s licensing information.
+//
+//  FilterDataProviderInbound.swift
+//  FnmaFirewallExtension
+//
+//  Created by Dinesh Kumar on 2/22/22.
+//  Copyright © 2022 Apple. All rights reserved.
+//
 
-Abstract:
-This file contains the implementation of the NEFilterDataProvider sub-class.
-*/
 
 import NetworkExtension
 import os.log
 import PythonKit
 import Foundation
 
-/**
-    The FilterDataProvider class handles connections that match the installed rules by prompting
-    the user to allow or deny the connections.
- */
-class FilterDataProvider: NEFilterDataProvider {
+class FilterDataProviderInbound: NEFilterDataProvider {
 
-    // MARK: NEFilterDataProvider
+    // MARK: FilterDataProviderInbound
     override func startFilter(completionHandler: @escaping (Error?) -> Void) {
         
         
@@ -26,7 +24,7 @@ class FilterDataProvider: NEFilterDataProvider {
                                  localNetwork: nil,
                                  localPrefix: 0,
                                  protocol: .any,
-                                 direction: .outbound)
+                                 direction: .inbound)
      let oRules =  NEFilterRule(networkRule: oNetworkRule, action: .filterData)
         
      // Allow all flows that do not match the filter rules.
@@ -66,25 +64,6 @@ class FilterDataProvider: NEFilterDataProvider {
               self.resumeFlow(flow, with: NEFilterNewFlowVerdict.allow())
            }
         }
-        
-        // Inbound condition based on docker process
-        // Outbound condition based on docker port
-        
-                
-        if(socketFlow!.direction == NETrafficDirection.outbound) {
-            let processName = getProcessName(socketFlow)
-            FnmaLog(message:  "Process Name: " + processName!)
-            
-            if (processName != nil) {
-                if(processName!.contains("com.docker.vpnkit")) {
-                   self.resumeFlow(flow, with: NEFilterNewFlowVerdict.drop())
-                } else {
-                   self.resumeFlow(flow, with: NEFilterNewFlowVerdict.allow())
-                }
-            } else {
-                self.resumeFlow(flow, with: NEFilterNewFlowVerdict.allow())
-            }
-        }
         return .pause()
    }
 
@@ -115,22 +94,6 @@ class FilterDataProvider: NEFilterDataProvider {
                    return false;
                 }
        return false;
-    }
-       
-    func getProcessName(_ flow: NEFilterSocketFlow?) -> String? {
-        var codeQ: SecCode? = nil
-        var err = SecCodeCopyGuestWithAttributes(nil, [kSecGuestAttributeAudit: flow?.sourceAppAuditToken as Any] as NSDictionary, [], &codeQ)
-            guard err == errSecSuccess else { return nil }
-        let code = codeQ!
-        var staticCodeQ: SecStaticCode? = nil
-        err = SecCodeCopyStaticCode(code, [], &staticCodeQ) // Convert that to a static code.
-        let staticCode = staticCodeQ!
-        var pathCodeQ: CFURL?
-        err = SecCodeCopyPath(staticCode, SecCSFlags(rawValue: 0), &pathCodeQ);
-        let posixPath = CFURLCopyFileSystemPath(pathCodeQ, CFURLPathStyle.cfurlposixPathStyle);
-        let posixPathStr: String = (posixPath! as NSString) as String
-        guard err == errSecSuccess else { return nil }
-        return posixPathStr
     }
 
 }
