@@ -3,25 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7117A0F627C1597B006C8131 /* com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = C40A5C45229DD6A500627D50 /* com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7159999727C2E606002C47C1 /* Ports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718C702127C24EFB00EFF324 /* Ports.swift */; };
-		7159999827C2E606002C47C1 /* IPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B1415A227A396500B26560 /* IPCConnection.swift */; };
-		7159999927C2E606002C47C1 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718C701F27C24E8700EFF324 /* Container.swift */; };
-		7159999A27C2E606002C47C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B45DBA22739FFF0050C59B /* ViewController.swift */; };
-		7159999B27C2E606002C47C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B45DB822739FFF0050C59B /* AppDelegate.swift */; };
-		7159999D27C2E606002C47C1 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B45DDD2273A3450050C59B /* NetworkExtension.framework */; };
-		7159999E27C2E606002C47C1 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7159999427C2E606002C47C1 /* PythonKit */; };
-		715999A027C2E606002C47C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4B45DBC2273A0020050C59B /* Assets.xcassets */; };
-		715999A127C2E606002C47C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4B45DBE2273A0020050C59B /* Main.storyboard */; };
-		715999A327C2E606002C47C1 /* com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = C40A5C45229DD6A500627D50 /* com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		718C701C27C2428900EFF324 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 718C701B27C2428900EFF324 /* PythonKit */; };
-		718C702027C24E8700EFF324 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718C701F27C24E8700EFF324 /* Container.swift */; };
-		718C702227C24EFB00EFF324 /* Ports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718C702127C24EFB00EFF324 /* Ports.swift */; };
-		718C702427C2643300EFF324 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 718C702327C2643300EFF324 /* PythonKit */; };
+		7117A0F627C1597B006C8131 /* com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = C40A5C45229DD6A500627D50 /* com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C40A5C46229DD6A500627D50 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B45DDD2273A3450050C59B /* NetworkExtension.framework */; };
 		C40A5C4B229DD6A500627D50 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A5C4A229DD6A500627D50 /* main.swift */; };
 		C40A5C56229DD92E00627D50 /* IPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B1415A227A396500B26560 /* IPCConnection.swift */; };
@@ -42,13 +28,6 @@
 			remoteGlobalIDString = C40A5C44229DD6A500627D50;
 			remoteInfo = FnmaFirewallExtension;
 		};
-		7159999327C2E606002C47C1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C4B45DAD22739FFF0050C59B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C40A5C44229DD6A500627D50;
-			remoteInfo = FnmaFirewallExtension;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -58,18 +37,7 @@
 			dstPath = "$(SYSTEM_EXTENSIONS_FOLDER_PATH)";
 			dstSubfolderSpec = 16;
 			files = (
-				7117A0F627C1597B006C8131 /* com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension.systemextension in Embed System Extensions */,
-			);
-			name = "Embed System Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		715999A227C2E606002C47C1 /* Embed System Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(SYSTEM_EXTENSIONS_FOLDER_PATH)";
-			dstSubfolderSpec = 16;
-			files = (
-				715999A327C2E606002C47C1 /* com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension.systemextension in Embed System Extensions */,
+				7117A0F627C1597B006C8131 /* com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension in Embed System Extensions */,
 			);
 			name = "Embed System Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,11 +48,7 @@
 		03411C5003411ED000000001 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6ED719E06ED6DED000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		6ED8E4306ED7A1A000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		715999A727C2E606002C47C1 /* FnmaFirewall copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FnmaFirewall copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		715999A827C2E606002C47C1 /* FnmaFirewall copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FnmaFirewall copy-Info.plist"; path = "/Users/dineshkumar/DevJoy/FnmaFirewall/FnmaFirewall copy-Info.plist"; sourceTree = "<absolute>"; };
-		718C701F27C24E8700EFF324 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
-		718C702127C24EFB00EFF324 /* Ports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ports.swift; sourceTree = "<group>"; };
-		C40A5C45229DD6A500627D50 /* com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = "com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension.systemextension"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C40A5C45229DD6A500627D50 /* com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = "com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40A5C4A229DD6A500627D50 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C40A5C4C229DD6A500627D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C40A5C4D229DD6A500627D50 /* FnmaFirewallExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FnmaFirewallExtension.entitlements; sourceTree = "<group>"; };
@@ -101,21 +65,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7159999C27C2E606002C47C1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7159999D27C2E606002C47C1 /* NetworkExtension.framework in Frameworks */,
-				7159999E27C2E606002C47C1 /* PythonKit in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C40A5C42229DD6A500627D50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C40A5C46229DD6A500627D50 /* NetworkExtension.framework in Frameworks */,
-				718C702427C2643300EFF324 /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,7 +78,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4B45DDE2273A3450050C59B /* NetworkExtension.framework in Frameworks */,
-				718C701C27C2428900EFF324 /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +122,6 @@
 				C4B45DDC2273A3450050C59B /* Frameworks */,
 				6ED613506ED6B88000000001 /* Configuration */,
 				6ED7B3006ED7B69000000001 /* LICENSE */,
-				715999A827C2E606002C47C1 /* FnmaFirewall copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,8 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B45DB522739FFF0050C59B /* FnmaFirewall.app */,
-				C40A5C45229DD6A500627D50 /* com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension.systemextension */,
-				715999A727C2E606002C47C1 /* FnmaFirewall copy.app */,
+				C40A5C45229DD6A500627D50 /* com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,8 +143,6 @@
 				C4B45DBE2273A0020050C59B /* Main.storyboard */,
 				C4B45DC12273A0020050C59B /* Info.plist */,
 				C4B45DC22273A0020050C59B /* FnmaFirewall.entitlements */,
-				718C701F27C24E8700EFF324 /* Container.swift */,
-				718C702127C24EFB00EFF324 /* Ports.swift */,
 			);
 			path = FnmaFirewall;
 			sourceTree = "<group>";
@@ -209,28 +158,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7159999127C2E606002C47C1 /* FnmaFirewall copy */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 715999A427C2E606002C47C1 /* Build configuration list for PBXNativeTarget "FnmaFirewall copy" */;
-			buildPhases = (
-				7159999627C2E606002C47C1 /* Sources */,
-				7159999C27C2E606002C47C1 /* Frameworks */,
-				7159999F27C2E606002C47C1 /* Resources */,
-				715999A227C2E606002C47C1 /* Embed System Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7159999227C2E606002C47C1 /* PBXTargetDependency */,
-			);
-			name = "FnmaFirewall copy";
-			packageProductDependencies = (
-				7159999427C2E606002C47C1 /* PythonKit */,
-			);
-			productName = SimpleFirewall;
-			productReference = 715999A727C2E606002C47C1 /* FnmaFirewall copy.app */;
-			productType = "com.apple.product-type.application";
-		};
 		C40A5C44229DD6A500627D50 /* FnmaFirewallExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C40A5C54229DD6A500627D50 /* Build configuration list for PBXNativeTarget "FnmaFirewallExtension" */;
@@ -245,10 +172,9 @@
 			);
 			name = FnmaFirewallExtension;
 			packageProductDependencies = (
-				718C702327C2643300EFF324 /* PythonKit */,
 			);
 			productName = SimpleFirewallExtension;
-			productReference = C40A5C45229DD6A500627D50 /* com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension.systemextension */;
+			productReference = C40A5C45229DD6A500627D50 /* com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension */;
 			productType = "com.apple.product-type.system-extension";
 		};
 		C4B45DB422739FFF0050C59B /* FnmaFirewall */ = {
@@ -267,7 +193,6 @@
 			);
 			name = FnmaFirewall;
 			packageProductDependencies = (
-				718C701B27C2428900EFF324 /* PythonKit */,
 			);
 			productName = SimpleFirewall;
 			productReference = C4B45DB522739FFF0050C59B /* FnmaFirewall.app */;
@@ -302,7 +227,6 @@
 			);
 			mainGroup = C4B45DAC22739FFF0050C59B;
 			packageReferences = (
-				718C701A27C2428900EFF324 /* XCRemoteSwiftPackageReference "PythonKit" */,
 			);
 			productRefGroup = C4B45DB622739FFF0050C59B /* Products */;
 			projectDirPath = "";
@@ -310,21 +234,11 @@
 			targets = (
 				C4B45DB422739FFF0050C59B /* FnmaFirewall */,
 				C40A5C44229DD6A500627D50 /* FnmaFirewallExtension */,
-				7159999127C2E606002C47C1 /* FnmaFirewall copy */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7159999F27C2E606002C47C1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				715999A027C2E606002C47C1 /* Assets.xcassets in Resources */,
-				715999A127C2E606002C47C1 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C40A5C43229DD6A500627D50 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -344,18 +258,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7159999627C2E606002C47C1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7159999727C2E606002C47C1 /* Ports.swift in Sources */,
-				7159999827C2E606002C47C1 /* IPCConnection.swift in Sources */,
-				7159999927C2E606002C47C1 /* Container.swift in Sources */,
-				7159999A27C2E606002C47C1 /* ViewController.swift in Sources */,
-				7159999B27C2E606002C47C1 /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C40A5C41229DD6A500627D50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -370,9 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				718C702227C24EFB00EFF324 /* Ports.swift in Sources */,
 				C4B1415C227BBC0200B26560 /* IPCConnection.swift in Sources */,
-				718C702027C24E8700EFF324 /* Container.swift in Sources */,
 				C4B45DBB22739FFF0050C59B /* ViewController.swift in Sources */,
 				C4B45DB922739FFF0050C59B /* AppDelegate.swift in Sources */,
 			);
@@ -385,11 +285,6 @@
 			isa = PBXTargetDependency;
 			target = C40A5C44229DD6A500627D50 /* FnmaFirewallExtension */;
 			targetProxy = 7117A0F727C1597B006C8131 /* PBXContainerItemProxy */;
-		};
-		7159999227C2E606002C47C1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C40A5C44229DD6A500627D50 /* FnmaFirewallExtension */;
-			targetProxy = 7159999327C2E606002C47C1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -405,56 +300,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		715999A527C2E606002C47C1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6ED719E06ED6DED000000001 /* SampleCode.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FnmaFirewall/FnmaFirewall.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEPLOYMENT_LOCATION = YES;
-				DEVELOPMENT_TEAM = 7PFJDQ25X4;
-				DSTROOT = /Applications;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = "FnmaFirewall copy-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.dinesh-code.FnmaFirewall";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		715999A627C2E606002C47C1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6ED719E06ED6DED000000001 /* SampleCode.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = FnmaFirewall/FnmaFirewall.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEPLOYMENT_LOCATION = YES;
-				DEVELOPMENT_TEAM = 7PFJDQ25X4;
-				DSTROOT = /Applications;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = "FnmaFirewall copy-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.dinesh-code.FnmaFirewall";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		C40A5C52229DD6A500627D50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6ED719E06ED6DED000000001 /* SampleCode.xcconfig */;
@@ -464,7 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEPLOYMENT_LOCATION = YES;
 				DEVELOPMENT_TEAM = 7PFJDQ25X4;
-				DSTROOT = /;
+				DSTROOT = /Applications;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = FnmaFirewallExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -472,8 +317,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension";
-				PRODUCT_NAME = "com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension";
+				PRODUCT_NAME = "com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
@@ -489,7 +334,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEPLOYMENT_LOCATION = YES;
 				DEVELOPMENT_TEAM = 7PFJDQ25X4;
-				DSTROOT = /;
+				DSTROOT = /Applications;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = FnmaFirewallExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -497,8 +342,8 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension";
-				PRODUCT_NAME = "com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension";
+				PRODUCT_NAME = "com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
@@ -638,6 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 7PFJDQ25X4;
 				DSTROOT = /Applications;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -646,7 +492,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.dinesh-code.FnmaFirewall";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.fnma-firewall.FnmaFirewall";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -663,6 +509,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 7PFJDQ25X4;
 				DSTROOT = /Applications;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -671,7 +518,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.dinesh-code.FnmaFirewall";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.test.fnma-firewall.FnmaFirewall";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -681,15 +528,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		715999A427C2E606002C47C1 /* Build configuration list for PBXNativeTarget "FnmaFirewall copy" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				715999A527C2E606002C47C1 /* Debug */,
-				715999A627C2E606002C47C1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		C40A5C54229DD6A500627D50 /* Build configuration list for PBXNativeTarget "FnmaFirewallExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -718,43 +556,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		7159999527C2E606002C47C1 /* XCRemoteSwiftPackageReference "PythonKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pvieito/PythonKit.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		718C701A27C2428900EFF324 /* XCRemoteSwiftPackageReference "PythonKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pvieito/PythonKit.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		7159999427C2E606002C47C1 /* PythonKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 7159999527C2E606002C47C1 /* XCRemoteSwiftPackageReference "PythonKit" */;
-			productName = PythonKit;
-		};
-		718C701B27C2428900EFF324 /* PythonKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 718C701A27C2428900EFF324 /* XCRemoteSwiftPackageReference "PythonKit" */;
-			productName = PythonKit;
-		};
-		718C702327C2643300EFF324 /* PythonKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 718C701A27C2428900EFF324 /* XCRemoteSwiftPackageReference "PythonKit" */;
-			productName = PythonKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C4B45DAD22739FFF0050C59B /* Project object */;
 }
