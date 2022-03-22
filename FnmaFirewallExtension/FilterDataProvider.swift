@@ -57,9 +57,7 @@ class FilterDataProvider: NEFilterDataProvider {
               let remoteEndpoint = socketFlow.remoteEndpoint as? NWHostEndpoint else {
                   return .allow()
         }
-        
-        
-       
+      
         
         os_log("!!!! Docker >>>> Allowing !!!!! %{public}@",  flow)
 
@@ -68,10 +66,10 @@ class FilterDataProvider: NEFilterDataProvider {
         let processName = getProcessName(socketFlow)
         if(processName!.contains("docker")) {
             
-            if rulesSet.contains( remoteEndpoint.hostname) {
-                os_log("!!!! Docker >>>> Allowing !!!!! %{public}@", remoteEndpoint.hostname)
-                return .allow()
-            }
+            //if rulesSet.contains( remoteEndpoint.hostname) {
+              //  os_log("!!!! Docker >>>> Allowing !!!!! %{public}@", remoteEndpoint.hostname)
+            //    return .allow()
+          //  }
             
             
             // Login user name

@@ -41,30 +41,13 @@ class ViewController: NSViewController {
             // Update the UI to reflect the new status
             switch status {
                 case .stopped:
-                    statusIndicator.image = #imageLiteral(resourceName: "dot_red")
-                    statusSpinner.stopAnimation(self)
-                    statusSpinner.isHidden = true
                     stopButton.isHidden = true
-                    startButton.isHidden = false
                 case .indeterminate:
-                    statusIndicator.image = #imageLiteral(resourceName: "dot_yellow")
-                    statusSpinner.startAnimation(self)
-                    statusSpinner.isHidden = false
                     stopButton.isHidden = true
-                    startButton.isHidden = true
                 case .running:
-                    statusIndicator.image = #imageLiteral(resourceName: "dot_green")
-                    statusSpinner.stopAnimation(self)
-                    statusSpinner.isHidden = true
                     stopButton.isHidden = false
-                    startButton.isHidden = true
             }
 
-            if !statusSpinner.isHidden {
-                statusSpinner.startAnimation(self)
-            } else {
-                statusSpinner.stopAnimation(self)
-            }
         }
     }
 
@@ -105,6 +88,8 @@ class ViewController: NSViewController {
                 self.status = .stopped
                 return
             }
+            
+            self.startFilter()
 
             self.updateStatus()
 
@@ -158,10 +143,8 @@ class ViewController: NSViewController {
     
     // MARK: UI Event Handlers
     
-    @IBAction func startFilter(_ sender: Any) {
+    func startFilter() {
  
-        
-    
         status = .indeterminate
         guard !NEFilterManager.shared().isEnabled else {
             registerWithProvider()
@@ -179,7 +162,7 @@ class ViewController: NSViewController {
         OSSystemExtensionManager.shared.submitRequest(activationRequest)
     }
 
-    @IBAction func stopFilter(_ sender: Any) {
+    func stopFilter() {
 
         let filterManager = NEFilterManager.shared()
 
