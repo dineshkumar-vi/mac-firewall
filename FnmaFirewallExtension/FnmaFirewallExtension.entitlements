@@ -8,7 +8,7 @@
 	</array>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>$(TeamIdentifierPrefix)com.test.dinesh-code.FnmaFirewall.FnmaFirewallExtension</string>
+		<string>$(TeamIdentifierPrefix)com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension</string>
 	</array>
 </dict>
 </plist>

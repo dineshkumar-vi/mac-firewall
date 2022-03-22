@@ -3,8 +3,6 @@ import NetworkExtension
 import SystemExtensions
 import os.log
 
-import PythonKit
-
 /**
     The ViewController class implements the UI functions of the app, including:
       - Activating the system extension and enabling the content filter configuration when the user clicks on the Start button
@@ -28,6 +26,8 @@ class ViewController: NSViewController {
     @IBOutlet var stopButton: NSButton!
     @IBOutlet var logTextView: NSTextView!
 
+    private let fileManager = FileManager.default
+    
     var observer: Any?
 
     lazy var dateFormatter: DateFormatter = {
@@ -41,30 +41,13 @@ class ViewController: NSViewController {
             // Update the UI to reflect the new status
             switch status {
                 case .stopped:
-                    statusIndicator.image = #imageLiteral(resourceName: "dot_red")
-                    statusSpinner.stopAnimation(self)
-                    statusSpinner.isHidden = true
                     stopButton.isHidden = true
-                    startButton.isHidden = false
                 case .indeterminate:
-                    statusIndicator.image = #imageLiteral(resourceName: "dot_yellow")
-                    statusSpinner.startAnimation(self)
-                    statusSpinner.isHidden = false
                     stopButton.isHidden = true
-                    startButton.isHidden = true
                 case .running:
-                    statusIndicator.image = #imageLiteral(resourceName: "dot_green")
-                    statusSpinner.stopAnimation(self)
-                    statusSpinner.isHidden = true
                     stopButton.isHidden = false
-                    startButton.isHidden = true
             }
 
-            if !statusSpinner.isHidden {
-                statusSpinner.startAnimation(self)
-            } else {
-                statusSpinner.stopAnimation(self)
-            }
         }
     }
 
@@ -105,6 +88,8 @@ class ViewController: NSViewController {
                 self.status = .stopped
                 return
             }
+            
+            self.startFilter()
 
             self.updateStatus()
 
@@ -137,7 +122,7 @@ class ViewController: NSViewController {
             status = .stopped
         }
     }
-
+    
     func logFlow(_ flowInfo: [String: String], at date: Date, userAllowed: Bool) {
 
         guard let localPort = flowInfo[FlowInfoKey.localPort.rawValue],
@@ -158,48 +143,8 @@ class ViewController: NSViewController {
     
     // MARK: UI Event Handlers
     
-    func convertIntoJSONString(arrayObject: Any) -> String? {
-
-            do {
-                let checker = JSONSerialization.isValidJSONObject(arrayObject)
-                print(checker)
-
-                let jsonData: Data = try JSONSerialization.data(withJSONObject: arrayObject, options: [])
-                if  let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue) {
-                    return jsonString as String
-                }
-                
-            } catch let error as NSError {
-                print("Array convertIntoJSON - \(error.description)")
-            }
-            return nil
-        }
-    
-    func matches(for regex: String, in text: String) -> [String] {
-
-        do {
-            let regex = try NSRegularExpression(pattern: regex)
-            let nsString = text as NSString
-            let results = regex.matches(in: text, range: NSRange(location: 0, length: nsString.length))
-            return results.map { nsString.substring(with: $0.range)}
-        } catch let error {
-            print("invalid regex: \(error.localizedDescription)")
-            return []
-        }
-    }
-    
-    
-    func generic<T>(parameter: AnyObject, type: T.Type) -> Bool {
-        if parameter is T {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    @IBAction func startFilter(_ sender: Any) {
-        
-
+    func startFilter() {
+ 
         status = .indeterminate
         guard !NEFilterManager.shared().isEnabled else {
             registerWithProvider()
@@ -217,7 +162,7 @@ class ViewController: NSViewController {
         OSSystemExtensionManager.shared.submitRequest(activationRequest)
     }
 
-    @IBAction func stopFilter(_ sender: Any) {
+    func stopFilter() {
 
         let filterManager = NEFilterManager.shared()
 
