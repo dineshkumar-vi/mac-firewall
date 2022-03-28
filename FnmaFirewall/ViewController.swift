@@ -16,22 +16,30 @@ class ViewController: NSViewController {
         case stopped
         case indeterminate
         case running
+        case password
     }
 
     // MARK: Properties
-
     @IBOutlet var statusIndicator: NSImageView!
     @IBOutlet var statusSpinner: NSProgressIndicator!
     @IBOutlet var startButton: NSButton!
     @IBOutlet var stopButton: NSButton!
     @IBOutlet var logTextView: NSTextView!
+    @IBOutlet var passwordButton: NSButton!
+    @IBOutlet weak var passwordTextBox: NSSecureTextField!
+    @IBOutlet var uninstallButton: NSButton!
+ 
+    
+    
+
+    
 
     private let fileManager = FileManager.default
     
     var observer: Any?
 
     lazy var dateFormatter: DateFormatter = {
-		let formatter = DateFormatter()
+        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return formatter
     }()
@@ -41,13 +49,38 @@ class ViewController: NSViewController {
             // Update the UI to reflect the new status
             switch status {
                 case .stopped:
+                    statusIndicator.image = #imageLiteral(resourceName: "dot_red")
+                    statusSpinner.stopAnimation(self)
+                    statusSpinner.isHidden = true
                     stopButton.isHidden = true
+                    startButton.isHidden = false
+                    passwordButton.isHidden = true
+                    passwordTextBox.isHidden = true
                 case .indeterminate:
+                    statusIndicator.image = #imageLiteral(resourceName: "dot_yellow")
+                    statusSpinner.startAnimation(self)
+                    statusSpinner.isHidden = false
                     stopButton.isHidden = true
+                    startButton.isHidden = true
                 case .running:
+                    statusIndicator.image = #imageLiteral(resourceName: "dot_green")
+                    statusSpinner.stopAnimation(self)
+                    statusSpinner.isHidden = true
                     stopButton.isHidden = false
+                    startButton.isHidden = true
+                case .password:
+                    statusSpinner.isHidden = true
+                    stopButton.isHidden = false
+                    startButton.isHidden = true
+                    passwordButton.isHidden = false
+                    passwordTextBox.isHidden = false
             }
 
+            if !statusSpinner.isHidden {
+                statusSpinner.startAnimation(self)
+            } else {
+                statusSpinner.stopAnimation(self)
+            }
         }
     }
 
@@ -76,7 +109,6 @@ class ViewController: NSViewController {
     }()
 
     // MARK: NSViewController
-
     override func viewWillAppear() {
 
         super.viewWillAppear()
@@ -88,8 +120,6 @@ class ViewController: NSViewController {
                 self.status = .stopped
                 return
             }
-            
-            self.startFilter()
 
             self.updateStatus()
 
@@ -113,7 +143,6 @@ class ViewController: NSViewController {
     }
 
     // MARK: Update the UI
-
     func updateStatus() {
 
         if NEFilterManager.shared().isEnabled {
@@ -143,8 +172,9 @@ class ViewController: NSViewController {
     
     // MARK: UI Event Handlers
     
-    func startFilter() {
+    @IBAction func startFilter(_ sender: Any) {
  
+            
         status = .indeterminate
         guard !NEFilterManager.shared().isEnabled else {
             registerWithProvider()
@@ -161,10 +191,38 @@ class ViewController: NSViewController {
         activationRequest.delegate = self
         OSSystemExtensionManager.shared.submitRequest(activationRequest)
     }
-
-    func stopFilter() {
-
-        let filterManager = NEFilterManager.shared()
+    
+    
+    func showAlert(msg1: String, msg2: String) {
+        
+        guard let window = view.window else {
+            return
+        }
+        
+        let alert = NSAlert()
+        alert.alertStyle = .critical
+        alert.messageText = msg1
+        alert.informativeText = msg2
+        alert.addButton(withTitle: "Ok")
+        alert.beginSheetModal(for: window) { userResponse in  }
+             
+    }
+    
+    @IBAction func passwordValidation(_ sender: Any) {
+              
+        if( passwordTextBox.stringValue.isEmpty) {
+            showAlert(msg1: "Password missing", msg2: "Please enter the valid password")
+        } else if passwordTextBox.stringValue != "M@gnu$2004" {
+            showAlert(msg1: "Invalid password", msg2: "Please enter the valid password")
+        } else {
+            self.stopFilterWithPassword()
+        }
+        
+    }
+    
+    func stopFilterWithPassword() {
+        
+         let filterManager = NEFilterManager.shared()
 
         status = .indeterminate
 
@@ -193,10 +251,15 @@ class ViewController: NSViewController {
                 }
             }
         }
+        
+    }
+ 
+    @IBAction func stopFilter(_ sender: Any) {
+        passwordTextBox.stringValue.removeAll()
+        status = .password
     }
 
     // MARK: Content Filter Configuration Management
-
     func loadFilterConfiguration(completionHandler: @escaping (Bool) -> Void) {
 
         NEFilterManager.shared().loadFromPreferences { loadError in
@@ -254,7 +317,6 @@ class ViewController: NSViewController {
     }
 
     // MARK: ProviderCommunication
-
     func registerWithProvider() {
 
         IPCConnection.shared.register(withExtension: extensionBundle, delegate: self) { success in
@@ -267,8 +329,7 @@ class ViewController: NSViewController {
 
 extension ViewController: OSSystemExtensionRequestDelegate {
 
-	// MARK: OSSystemExtensionActivationRequestDelegate
-
+    // MARK: OSSystemExtensionActivationRequestDelegate
     func request(_ request: OSSystemExtensionRequest, didFinishWithResult result: OSSystemExtensionRequest.Result) {
 
         guard result == .completed else {
@@ -303,7 +364,6 @@ extension ViewController: OSSystemExtensionRequestDelegate {
 extension ViewController: AppCommunication {
 
     // MARK: AppCommunication
-
     func promptUser(aboutFlow flowInfo: [String: String], responseHandler: @escaping (Bool) -> Void) {
 
         guard let localPort = flowInfo[FlowInfoKey.localPort.rawValue],
