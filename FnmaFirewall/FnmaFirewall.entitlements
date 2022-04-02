@@ -10,7 +10,7 @@
 	<true/>
 	<key>com.apple.security.application-groups</key>
 	<array>
-		<string>$(TeamIdentifierPrefix)com.test.fnma-firewall.FnmaFirewall</string>
+		<string>$(TeamIdentifierPrefix)com.dinesh.fnma-firewall.FnmaFirewall</string>
 	</array>
 </dict>
 </plist>

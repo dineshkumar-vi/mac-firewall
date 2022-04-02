@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C40A5C44229DD6A500627D50"
-               BuildableName = "com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension"
+               BuildableName = "com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension"
                BlueprintName = "FnmaFirewallExtension"
                ReferencedContainer = "container:FnmaFirewall.xcodeproj">
             </BuildableReference>
@@ -51,7 +51,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C40A5C44229DD6A500627D50"
-            BuildableName = "com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension"
+            BuildableName = "com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension"
             BlueprintName = "FnmaFirewallExtension"
             ReferencedContainer = "container:FnmaFirewall.xcodeproj">
          </BuildableReference>

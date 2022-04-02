@@ -14,12 +14,6 @@ import Foundation
     the user to allow or deny the connections.
  */
 class FilterDataProvider: NEFilterDataProvider {
-    
-    // let docker = DockerClient(unixSocketPath: "/var/run/docker.sock")
-    // let request = URLRequest(url: URL(string: "http:/v1.40/containers/json?all=1")!)
-    
-    let rulesSet: Set = ["192.168.1.254", "157.240.36.123"]
-
   
 
     // MARK: NEFilterDataProvider
@@ -51,42 +45,16 @@ class FilterDataProvider: NEFilterDataProvider {
   
     override func handleNewFlow(_ flow: NEFilterFlow) -> NEFilterNewFlowVerdict {
         
-
-        guard let socketFlow = flow as? NEFilterSocketFlow,
-              let _ = socketFlow.localEndpoint as? NWHostEndpoint,
-              let remoteEndpoint = socketFlow.remoteEndpoint as? NWHostEndpoint else {
+        guard let socketFlow = flow as? NEFilterSocketFlow else {
                   return .allow()
         }
-      
-        
-        os_log("!!!! Docker >>>> Allowing !!!!! %{public}@",  flow)
 
-        os_log("!!!! Docker >>>> Allowing !!!!! %{public}@", remoteEndpoint.hostname)
 
         let processName = getProcessName(socketFlow)
         if(processName!.contains("docker")) {
-            
-            //if rulesSet.contains( remoteEndpoint.hostname) {
-              //  os_log("!!!! Docker >>>> Allowing !!!!! %{public}@", remoteEndpoint.hostname)
-            //    return .allow()
-          //  }
-            
-            
-            // Login user name
-            // Login Ip address
-            // Send metrics and
-            // Allow: https://registry-1.docker.io/v2/
-            if(socketFlow.direction == NETrafficDirection.inbound) {
-                os_log("!!!! Docker >>>> Inbound !!!!! %{public}@", remoteEndpoint.hostname)
-            }
-            
-            if(socketFlow.direction == NETrafficDirection.outbound) {
-                os_log("!!!! Docker -->>>> Outbound !!!!! %{public}@", remoteEndpoint.hostname)
-            }
             return .drop()
         }
         
-
         return .allow()
    }
 

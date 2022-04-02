@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7117A0F627C1597B006C8131 /* com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = C40A5C45229DD6A500627D50 /* com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7117A0F627C1597B006C8131 /* com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = C40A5C45229DD6A500627D50 /* com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7198184027F8B5AB00D622EA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198183F27F8B5AB00D622EA /* main.swift */; };
+		7198184927F8B6AB00D622EA /* CLIFnmaFirewallX in Embed Helper Tools */ = {isa = PBXBuildFile; fileRef = 7198183D27F8B5AB00D622EA /* CLIFnmaFirewallX */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C40A5C46229DD6A500627D50 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B45DDD2273A3450050C59B /* NetworkExtension.framework */; };
 		C40A5C4B229DD6A500627D50 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40A5C4A229DD6A500627D50 /* main.swift */; };
 		C40A5C56229DD92E00627D50 /* IPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B1415A227A396500B26560 /* IPCConnection.swift */; };
@@ -28,6 +30,13 @@
 			remoteGlobalIDString = C40A5C44229DD6A500627D50;
 			remoteInfo = FnmaFirewallExtension;
 		};
+		7198184427F8B60C00D622EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4B45DAD22739FFF0050C59B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7198183C27F8B5AB00D622EA;
+			remoteInfo = CLIFnmaFirewallX;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,9 +46,39 @@
 			dstPath = "$(SYSTEM_EXTENSIONS_FOLDER_PATH)";
 			dstSubfolderSpec = 16;
 			files = (
-				7117A0F627C1597B006C8131 /* com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension in Embed System Extensions */,
+				7117A0F627C1597B006C8131 /* com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension in Embed System Extensions */,
 			);
 			name = "Embed System Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7198183B27F8B5AB00D622EA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		7198184727F8B62D00D622EA /* Embed Helper Tools */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				7198184927F8B6AB00D622EA /* CLIFnmaFirewallX in Embed Helper Tools */,
+			);
+			name = "Embed Helper Tools";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7198187627F8F9A500D622EA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -48,7 +87,9 @@
 		03411C5003411ED000000001 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6ED719E06ED6DED000000001 /* SampleCode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		6ED8E4306ED7A1A000000001 /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		C40A5C45229DD6A500627D50 /* com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = "com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7198183D27F8B5AB00D622EA /* CLIFnmaFirewallX */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CLIFnmaFirewallX; sourceTree = BUILT_PRODUCTS_DIR; };
+		7198183F27F8B5AB00D622EA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C40A5C45229DD6A500627D50 /* com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension */ = {isa = PBXFileReference; explicitFileType = "wrapper.system-extension"; includeInIndex = 0; path = "com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C40A5C4A229DD6A500627D50 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C40A5C4C229DD6A500627D50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C40A5C4D229DD6A500627D50 /* FnmaFirewallExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FnmaFirewallExtension.entitlements; sourceTree = "<group>"; };
@@ -65,6 +106,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7198183A27F8B5AB00D622EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C40A5C42229DD6A500627D50 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -100,6 +148,14 @@
 			path = LICENSE;
 			sourceTree = "<group>";
 		};
+		7198183E27F8B5AB00D622EA /* CLIFnmaFirewallX */ = {
+			isa = PBXGroup;
+			children = (
+				7198183F27F8B5AB00D622EA /* main.swift */,
+			);
+			path = CLIFnmaFirewallX;
+			sourceTree = "<group>";
+		};
 		C40A5C47229DD6A500627D50 /* FnmaFirewallExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +174,7 @@
 				03411C5003411ED000000001 /* README.md */,
 				C4B45DB722739FFF0050C59B /* FnmaFirewall */,
 				C40A5C47229DD6A500627D50 /* FnmaFirewallExtension */,
+				7198183E27F8B5AB00D622EA /* CLIFnmaFirewallX */,
 				C4B45DB622739FFF0050C59B /* Products */,
 				C4B45DDC2273A3450050C59B /* Frameworks */,
 				6ED613506ED6B88000000001 /* Configuration */,
@@ -129,7 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				C4B45DB522739FFF0050C59B /* FnmaFirewall.app */,
-				C40A5C45229DD6A500627D50 /* com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension */,
+				C40A5C45229DD6A500627D50 /* com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension */,
+				7198183D27F8B5AB00D622EA /* CLIFnmaFirewallX */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,6 +216,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7198183C27F8B5AB00D622EA /* CLIFnmaFirewallX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7198184127F8B5AB00D622EA /* Build configuration list for PBXNativeTarget "CLIFnmaFirewallX" */;
+			buildPhases = (
+				7198183927F8B5AB00D622EA /* Sources */,
+				7198183A27F8B5AB00D622EA /* Frameworks */,
+				7198183B27F8B5AB00D622EA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CLIFnmaFirewallX;
+			productName = CLIFnmaFirewallX;
+			productReference = 7198183D27F8B5AB00D622EA /* CLIFnmaFirewallX */;
+			productType = "com.apple.product-type.tool";
+		};
 		C40A5C44229DD6A500627D50 /* FnmaFirewallExtension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C40A5C54229DD6A500627D50 /* Build configuration list for PBXNativeTarget "FnmaFirewallExtension" */;
@@ -174,7 +249,7 @@
 			packageProductDependencies = (
 			);
 			productName = SimpleFirewallExtension;
-			productReference = C40A5C45229DD6A500627D50 /* com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension */;
+			productReference = C40A5C45229DD6A500627D50 /* com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension */;
 			productType = "com.apple.product-type.system-extension";
 		};
 		C4B45DB422739FFF0050C59B /* FnmaFirewall */ = {
@@ -185,10 +260,13 @@
 				C4B45DB222739FFF0050C59B /* Frameworks */,
 				C4B45DB322739FFF0050C59B /* Resources */,
 				7117A0F927C1597C006C8131 /* Embed System Extensions */,
+				7198184727F8B62D00D622EA /* Embed Helper Tools */,
+				7198187627F8F9A500D622EA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7198184527F8B60C00D622EA /* PBXTargetDependency */,
 				7117A0F827C1597B006C8131 /* PBXTargetDependency */,
 			);
 			name = FnmaFirewall;
@@ -205,10 +283,13 @@
 			isa = PBXProject;
 			attributes = {
 				DefaultBuildSystemTypeForWorkspace = Latest;
-				LastSwiftUpdateCheck = 1100;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
+					7198183C27F8B5AB00D622EA = {
+						CreatedOnToolsVersion = 13.3;
+					};
 					C40A5C44229DD6A500627D50 = {
 						CreatedOnToolsVersion = 11.0;
 					};
@@ -234,6 +315,7 @@
 			targets = (
 				C4B45DB422739FFF0050C59B /* FnmaFirewall */,
 				C40A5C44229DD6A500627D50 /* FnmaFirewallExtension */,
+				7198183C27F8B5AB00D622EA /* CLIFnmaFirewallX */,
 			);
 		};
 /* End PBXProject section */
@@ -258,6 +340,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7198183927F8B5AB00D622EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7198184027F8B5AB00D622EA /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C40A5C41229DD6A500627D50 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,6 +376,11 @@
 			target = C40A5C44229DD6A500627D50 /* FnmaFirewallExtension */;
 			targetProxy = 7117A0F727C1597B006C8131 /* PBXContainerItemProxy */;
 		};
+		7198184527F8B60C00D622EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7198183C27F8B5AB00D622EA /* CLIFnmaFirewallX */;
+			targetProxy = 7198184427F8B60C00D622EA /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -300,6 +395,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7198184227F8B5AB00D622EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7PFJDQ25X4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dinesh.fnma-firewall.FnmaFirewall.CLIFnmaFirewallX";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7198184327F8B5AB00D622EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CODE_SIGN_INJECT_BASE_ENTITLEMENTS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7PFJDQ25X4;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dinesh.fnma-firewall.FnmaFirewall.CLIFnmaFirewallX";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		C40A5C52229DD6A500627D50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6ED719E06ED6DED000000001 /* SampleCode.xcconfig */;
@@ -309,17 +436,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEPLOYMENT_LOCATION = YES;
 				DEVELOPMENT_TEAM = 7PFJDQ25X4;
-				DSTROOT = /Applications;
+				DSTROOT = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = FnmaFirewallExtension/Info.plist;
-				INSTALL_PATH = /Applications;
+				INSTALL_PATH = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension";
-				PRODUCT_NAME = "com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension";
+				PRODUCT_NAME = "com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
@@ -335,17 +462,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEPLOYMENT_LOCATION = YES;
 				DEVELOPMENT_TEAM = 7PFJDQ25X4;
-				DSTROOT = /Applications;
+				DSTROOT = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = FnmaFirewallExtension/Info.plist;
-				INSTALL_PATH = /Applications;
+				INSTALL_PATH = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension";
-				PRODUCT_NAME = "com.test.fnma-firewall.FnmaFirewall.FnmaFirewallExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension";
+				PRODUCT_NAME = "com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SWIFT_VERSION = 5.0;
@@ -494,7 +621,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.fnma-firewall.FnmaFirewall";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dinesh.fnma-firewall.FnmaFirewall";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -520,7 +647,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.test.fnma-firewall.FnmaFirewall";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dinesh.fnma-firewall.FnmaFirewall";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -530,6 +657,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7198184127F8B5AB00D622EA /* Build configuration list for PBXNativeTarget "CLIFnmaFirewallX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7198184227F8B5AB00D622EA /* Debug */,
+				7198184327F8B5AB00D622EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C40A5C54229DD6A500627D50 /* Build configuration list for PBXNativeTarget "FnmaFirewallExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

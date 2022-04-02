@@ -30,10 +30,6 @@ class ViewController: NSViewController {
     @IBOutlet var uninstallButton: NSButton!
  
     
-    
-
-    
-
     private let fileManager = FileManager.default
     
     var observer: Any?
@@ -152,35 +148,16 @@ class ViewController: NSViewController {
         }
     }
     
-    func logFlow(_ flowInfo: [String: String], at date: Date, userAllowed: Bool) {
-
-        guard let localPort = flowInfo[FlowInfoKey.localPort.rawValue],
-            let remoteAddress = flowInfo[FlowInfoKey.remoteAddress.rawValue],
-            let font = NSFont.userFixedPitchFont(ofSize: 12.0) else {
-                return
-        }
-
-        let dateString = dateFormatter.string(from: date)
-        let message = "\(dateString) \(userAllowed ? "ALLOW" : "DENY") \(localPort) <-- \(remoteAddress)\n"
-
-        os_log("%@", message)
-
-        let logAttributes: [NSAttributedString.Key: Any] = [ .font: font, .foregroundColor: NSColor.textColor ]
-        let attributedString = NSAttributedString(string: message, attributes: logAttributes)
-        logTextView.textStorage?.append(attributedString)
-    }
-    
     // MARK: UI Event Handlers
     
     @IBAction func startFilter(_ sender: Any) {
- 
-            
+        
         status = .indeterminate
         guard !NEFilterManager.shared().isEnabled else {
             registerWithProvider()
             return
         }
-
+        
         guard let extensionIdentifier = extensionBundle.bundleIdentifier else {
             self.status = .stopped
             return
@@ -251,7 +228,20 @@ class ViewController: NSViewController {
                 }
             }
         }
-        
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+     func writeStatus(status: String) {
+         let url = getDocumentsDirectory().appendingPathComponent("com.fanniemae.fnamfirewall.txt")
+         do {
+             try status.write(to: url, atomically: true, encoding: .utf8)
+         } catch {
+              os_log("Writing statue failed %@", error.localizedDescription)
+          }
     }
  
     @IBAction func stopFilter(_ sender: Any) {
@@ -261,7 +251,7 @@ class ViewController: NSViewController {
 
     // MARK: Content Filter Configuration Management
     func loadFilterConfiguration(completionHandler: @escaping (Bool) -> Void) {
-
+        
         NEFilterManager.shared().loadFromPreferences { loadError in
             DispatchQueue.main.async {
                 var success = true
@@ -282,6 +272,8 @@ class ViewController: NSViewController {
             registerWithProvider()
             return
         }
+        
+ 
 
         loadFilterConfiguration { success in
 
@@ -306,10 +298,23 @@ class ViewController: NSViewController {
                 DispatchQueue.main.async {
                     if let error = saveError {
                         os_log("Failed to save the filter configuration: %@", error.localizedDescription)
+                        if error.localizedDescription == "permission denied" {
+                            
+                            filterManager.isEnabled = false
+                            filterManager.removeFromPreferences { removeEror in
+                                DispatchQueue.main.async {
+                                    if let error = removeEror {
+                                        os_log("Failed to remove the filter configuration: %@", error.localizedDescription)
+                                    }
+                                }
+                            }
+                            self.writeStatus(status: "failed")
+                            self.showAlert(msg1: "Fnma DockerFirewall, Permission denied", msg2: "Click allow button from permission popup, Docker wont start until you click allow")
+                        }
                         self.status = .stopped
                         return
                     }
-
+                    self.writeStatus(status: "Passed")
                     self.registerWithProvider()
                 }
             }
@@ -319,12 +324,17 @@ class ViewController: NSViewController {
     // MARK: ProviderCommunication
     func registerWithProvider() {
 
-        IPCConnection.shared.register(withExtension: extensionBundle, delegate: self) { success in
+        IPCConnection.shared.register(withExtension: extensionBundle) { success in
             DispatchQueue.main.async {
                 self.status = (success ? .running : .stopped)
             }
         }
     }
+    
+    func stopCurrentConnection() {
+        IPCConnection.shared.stopProviderConnection()
+    }
+    
 }
 
 extension ViewController: OSSystemExtensionRequestDelegate {
@@ -361,34 +371,3 @@ extension ViewController: OSSystemExtensionRequestDelegate {
     }
 }
 
-extension ViewController: AppCommunication {
-
-    // MARK: AppCommunication
-    func promptUser(aboutFlow flowInfo: [String: String], responseHandler: @escaping (Bool) -> Void) {
-
-        guard let localPort = flowInfo[FlowInfoKey.localPort.rawValue],
-            let remoteAddress = flowInfo[FlowInfoKey.remoteAddress.rawValue],
-            let window = view.window else {
-                os_log("Got a promptUser call without valid flow info: %@", flowInfo)
-                responseHandler(true)
-                return
-        }
-
-        let connectionDate = Date()
-
-        DispatchQueue.main.async {
-            let alert = NSAlert()
-            alert.alertStyle = .informational
-            alert.messageText = "New incoming connection"
-            alert.informativeText = "A new connection on port \(localPort) has been received from \(remoteAddress)."
-            alert.addButton(withTitle: "Allow")
-            alert.addButton(withTitle: "Deny")
-
-            alert.beginSheetModal(for: window) { userResponse in
-                let userAllowed = (userResponse == .alertFirstButtonReturn)
-                self.logFlow(flowInfo, at: connectionDate, userAllowed: userAllowed)
-                responseHandler(userAllowed)
-            }
-        }
-    }
-}

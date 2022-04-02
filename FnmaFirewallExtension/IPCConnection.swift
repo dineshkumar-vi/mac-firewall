@@ -33,7 +33,6 @@ class IPCConnection: NSObject {
 
     var listener: NSXPCListener?
     var currentConnection: NSXPCConnection?
-    weak var delegate: AppCommunication?
     static let shared = IPCConnection()
 
     // MARK: Methods
@@ -65,9 +64,7 @@ class IPCConnection: NSObject {
     }
 
     /// This method is called by the app to register with the provider running in the system extension.
-    func register(withExtension bundle: Bundle, delegate: AppCommunication, completionHandler: @escaping (Bool) -> Void) {
-
-        self.delegate = delegate
+    func register(withExtension bundle: Bundle, completionHandler: @escaping (Bool) -> Void) {
 
         guard currentConnection == nil else {
             os_log("Already registered with the provider")
@@ -80,7 +77,6 @@ class IPCConnection: NSObject {
 
         // The exported object is the delegate.
         newConnection.exportedInterface = NSXPCInterface(with: AppCommunication.self)
-        newConnection.exportedObject = delegate
 
         // The remote object is the provider's IPCConnection instance.
         newConnection.remoteObjectInterface = NSXPCInterface(with: ProviderCommunication.self)
@@ -100,29 +96,12 @@ class IPCConnection: NSObject {
         providerProxy.register(completionHandler)
     }
 
-    /**
-        This method is called by the provider to cause the app (if it is registered) to display a prompt to the user asking
-        for a decision about a connection.
-    */
-    func promptUser(aboutFlow flowInfo: [String: String], responseHandler:@escaping (Bool) -> Void) -> Bool {
-
-        guard let connection = currentConnection else {
-            os_log("Cannot prompt user because the app isn't registered")
-            return false
-        }
-
-        guard let appProxy = connection.remoteObjectProxyWithErrorHandler({ promptError in
-            os_log("Failed to prompt the user: %@", promptError.localizedDescription)
-            self.currentConnection = nil
-            responseHandler(true)
-        }) as? AppCommunication else {
-            fatalError("Failed to create a remote object proxy for the app")
-        }
-
-        appProxy.promptUser(aboutFlow: flowInfo, responseHandler: responseHandler)
-
-        return true
+    
+    func stopProviderConnection() {
+        currentConnection = nil
     }
+    
+ 
 }
 
 extension IPCConnection: NSXPCListenerDelegate {
