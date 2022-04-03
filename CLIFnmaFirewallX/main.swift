@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import NetworkExtension
+import SystemExtensions
 
- 
+
 func getDocumentsDirectory() -> URL {
     let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
     return paths[0]

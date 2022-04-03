@@ -65,7 +65,7 @@ class IPCConnection: NSObject {
 
     /// This method is called by the app to register with the provider running in the system extension.
     func register(withExtension bundle: Bundle, completionHandler: @escaping (Bool) -> Void) {
-
+        
         guard currentConnection == nil else {
             os_log("Already registered with the provider")
             completionHandler(true)
@@ -74,6 +74,8 @@ class IPCConnection: NSObject {
 
         let machServiceName = extensionMachServiceName(from: bundle)
         let newConnection = NSXPCConnection(machServiceName: machServiceName, options: [])
+        
+        
 
         // The exported object is the delegate.
         newConnection.exportedInterface = NSXPCInterface(with: AppCommunication.self)

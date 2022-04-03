@@ -37,6 +37,13 @@
 			remoteGlobalIDString = 7198183C27F8B5AB00D622EA;
 			remoteInfo = CLIFnmaFirewallX;
 		};
+		7198188527F9B9E800D622EA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C4B45DAD22739FFF0050C59B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C40A5C44229DD6A500627D50;
+			remoteInfo = FnmaFirewallExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -227,6 +234,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7198188627F9B9E800D622EA /* PBXTargetDependency */,
 			);
 			name = CLIFnmaFirewallX;
 			productName = CLIFnmaFirewallX;
@@ -380,6 +388,11 @@
 			isa = PBXTargetDependency;
 			target = 7198183C27F8B5AB00D622EA /* CLIFnmaFirewallX */;
 			targetProxy = 7198184427F8B60C00D622EA /* PBXContainerItemProxy */;
+		};
+		7198188627F9B9E800D622EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C40A5C44229DD6A500627D50 /* FnmaFirewallExtension */;
+			targetProxy = 7198188527F9B9E800D622EA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

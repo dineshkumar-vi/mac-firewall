@@ -3,6 +3,7 @@ import NetworkExtension
 import SystemExtensions
 import os.log
 
+
 /**
     The ViewController class implements the UI functions of the app, including:
       - Activating the system extension and enabling the content filter configuration when the user clicks on the Start button
@@ -169,6 +170,18 @@ class ViewController: NSViewController {
         OSSystemExtensionManager.shared.submitRequest(activationRequest)
     }
     
+    func uninstall() {
+        
+        guard let extensionIdentifier = extensionBundle.bundleIdentifier else {
+            self.status = .stopped
+            return
+        }
+            
+        // Start by activating the system extension
+        let deactiveRequest = OSSystemExtensionRequest.deactivationRequest(forExtensionWithIdentifier: extensionIdentifier, queue: .main)
+        OSSystemExtensionManager.shared.submitRequest(deactiveRequest)
+    }
+    
     
     func showAlert(msg1: String, msg2: String) {
         
@@ -308,13 +321,16 @@ class ViewController: NSViewController {
                                     }
                                 }
                             }
+                        
                             self.writeStatus(status: "failed")
                             self.showAlert(msg1: "Fnma DockerFirewall, Permission denied", msg2: "Click allow button from permission popup, Docker wont start until you click allow")
                         }
+ 
                         self.status = .stopped
                         return
                     }
-                    self.writeStatus(status: "Passed")
+                    self.writeStatus(status: "passed")
+
                     self.registerWithProvider()
                 }
             }
