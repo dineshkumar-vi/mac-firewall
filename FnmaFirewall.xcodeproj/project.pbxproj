@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7117A0F627C1597B006C8131 /* com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension in Embed System Extensions */ = {isa = PBXBuildFile; fileRef = C40A5C45229DD6A500627D50 /* com.dinesh.fnma-firewall.FnmaFirewall.FnmaFirewallExtension.systemextension */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7144B01827FB343C0053A4DD /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 7144B01727FB343C0053A4DD /* ArgumentParser */; };
 		7198184027F8B5AB00D622EA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198183F27F8B5AB00D622EA /* main.swift */; };
 		7198184927F8B6AB00D622EA /* CLIFnmaFirewallX in Embed Helper Tools */ = {isa = PBXBuildFile; fileRef = 7198183D27F8B5AB00D622EA /* CLIFnmaFirewallX */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C40A5C46229DD6A500627D50 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B45DDD2273A3450050C59B /* NetworkExtension.framework */; };
@@ -132,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7144B01827FB343C0053A4DD /* ArgumentParser in Frameworks */,
 				C4B45DDE2273A3450050C59B /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +281,7 @@
 			);
 			name = FnmaFirewall;
 			packageProductDependencies = (
+				7144B01727FB343C0053A4DD /* ArgumentParser */,
 			);
 			productName = SimpleFirewall;
 			productReference = C4B45DB522739FFF0050C59B /* FnmaFirewall.app */;
@@ -316,6 +319,7 @@
 			);
 			mainGroup = C4B45DAC22739FFF0050C59B;
 			packageReferences = (
+				7144B01627FB343C0053A4DD /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
 			);
 			productRefGroup = C4B45DB622739FFF0050C59B /* Products */;
 			projectDirPath = "";
@@ -707,6 +711,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7144B01627FB343C0053A4DD /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7144B01727FB343C0053A4DD /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7144B01627FB343C0053A4DD /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C4B45DAD22739FFF0050C59B /* Project object */;
 }
