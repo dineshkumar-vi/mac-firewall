@@ -212,7 +212,7 @@ class ViewController: NSViewController {
     
     func stopFilterWithPassword() {
         
-         let filterManager = NEFilterManager.shared()
+        let filterManager = NEFilterManager.shared()
 
         status = .indeterminate
 
